@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -55,6 +55,15 @@
       cursor: pointer;
     }
 
+    .giveaway {
+      background-color: #1A1F2E;
+      border: 2px dashed #FFA500;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 25px;
+      max-width: 400px;
+    }
+
     .message {
       margin-top: 20px;
       color: lightgreen;
@@ -71,6 +80,11 @@
     <input type="email" name="email" placeholder="Enter your email" required />
     <button type="submit">Notify Me</button>
   </form>
+
+  <div class="giveaway">
+    🎉 Join the waitlist today for a chance to win a <strong>$50 gift card!</strong><br>
+    A random entry will be chosen before launch. No purchase necessary.
+  </div>
 
   <div class="message" id="successMsg" style="display:none;">
     ✅ Thanks! You’ve been added to the waitlist.
