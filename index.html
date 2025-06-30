@@ -3,31 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <title>TradesTalk - Coming Soon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #0A0E1A;
-      color: white;
+      font-family: 'Poppins', Arial, sans-serif;
+      background-color: #F7F7F7; /* Light gray */
+      color: #1B2C3B; /* Navy */
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      overflow-x: hidden;
+      padding-top: 70px; /* Offset for header */
+    }
+
+    header {
+      width: 100%;
+      background-color: #1B2C3B; /* Navy */
+      padding: 15px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      color: #F6A100; /* Orange */
+      margin: 0;
+      font-size: 1.4rem;
+      text-align: center;
+    }
+
+    main {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      height: 100vh;
-      margin: 0;
-      padding: 0 20px;
+      min-height: calc(100vh - 70px);
+      padding: 20px;
     }
 
-    h1 {
-      color: #FFA500;
-      margin-bottom: 0.5rem;
+    main h2 {
+      color: #1B2C3B;
+      font-size: 1.5rem;
+      margin: 1rem 0 0.5rem;
     }
 
-    p {
+    main p {
       max-width: 500px;
-      font-size: 1.1rem;
+      font-size: 1rem;
       line-height: 1.6;
-      margin-bottom: 1rem;
+      margin: 0.5rem 0;
     }
 
     form {
@@ -36,59 +68,86 @@
       align-items: center;
       gap: 10px;
       margin-top: 20px;
+      width: 100%;
     }
 
     input[type="email"] {
-      padding: 10px;
+      padding: 12px;
       width: 250px;
-      border: none;
-      border-radius: 5px;
+      border: 2px solid #1B2C3B; /* Navy border */
+      border-radius: 6px;
+      background-color: #FFFFFF;
+      color: #1B2C3B;
+      font-family: 'Poppins', Arial, sans-serif;
+      font-size: 1rem;
     }
 
     button {
-      padding: 10px 20px;
-      background-color: #FFA500;
-      color: black;
-      font-weight: bold;
+      padding: 12px 20px;
+      background-color: #F6A100; /* Orange */
+      color: #1B2C3B;
+      font-weight: 600;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      font-family: 'Poppins', Arial, sans-serif;
+    }
+
+    button:hover {
+      background-color: #4CAF50; /* Green hover */
+      color: white;
+      transform: scale(1.03);
     }
 
     .giveaway {
-      background-color: #1A1F2E;
-      border: 2px dashed #FFA500;
+      background-color: #EDEDED; /* Light gray card */
+      border: 2px dashed #F6A100; /* Orange dashed border */
       border-radius: 10px;
       padding: 15px;
       margin-top: 25px;
       max-width: 400px;
+      font-size: 0.95rem;
     }
 
     .message {
       margin-top: 20px;
-      color: lightgreen;
+      color: #4CAF50; /* Green success */
+      font-weight: 500;
+    }
+
+    @media (max-width: 480px) {
+      input[type="email"] {
+        width: 80%;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>TradesTalk is Coming Soon</h1>
-  <p>The platform where verified tradespeople teach, students learn, and companies train — all in one place.</p>
-  <h2>Join the Waitlist</h2>
-  <p>Be the first to access TradesTalk and get exclusive updates.</p>
+  <header>
+    <h1>TradesTalk</h1>
+  </header>
 
-  <form action="https://formspree.io/f/xldnoldq" method="POST">
-    <input type="email" name="email" placeholder="Enter your email" required />
-    <button type="submit">Notify Me</button>
-  </form>
+  <main>
+    <h2>TradesTalk is Coming Soon</h2>
+    <p>The platform where verified tradespeople teach, students learn, and companies train — all in one place.</p>
+    <h2>Join the Waitlist</h2>
+    <p>Be the first to access TradesTalk and get exclusive updates.</p>
 
-  <div class="giveaway">
-    🎉 Join the waitlist today for a chance to win a <strong>$50 gift card!</strong><br>
-    A random entry will be chosen before launch. No purchase necessary.
-  </div>
+    <form action="https://formspree.io/f/xldnoldq" method="POST">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <button type="submit">Notify Me</button>
+    </form>
 
-  <div class="message" id="successMsg" style="display:none;">
-    ✅ Thanks! You’ve been added to the waitlist.
-  </div>
+    <div class="giveaway">
+      🎉 Join the waitlist today for a chance to win a <strong>$50 gift card!</strong><br>
+      A random entry will be chosen before launch. No purchase necessary.
+    </div>
+
+    <div class="message" id="successMsg" style="display:none;">
+      ✅ Thanks! You’ve been added to the waitlist.
+    </div>
+  </main>
 
   <script>
     const form = document.querySelector("form");
